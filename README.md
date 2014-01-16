@@ -9,7 +9,7 @@ It currently supports Facebook, Twitter, Google Plus and Pinterest.
 
 ## Key features
 
-* **Speed**: counts are retrieved server-side and cached; no JavaScript SDK loading; no HTTP request to social networks
+* **Speed**: counts are retrieved server-side and cached; no JavaScript SDK loading; no HTTP request from your visitor's browser to social networks
 * **Privacy**: therefore, no data from your visitors is send to social networks, their privacy is respected
 * **Customization**: there is no need to use official social networks buttons, you can create beautiful custom buttons displaying the number of shares
 
