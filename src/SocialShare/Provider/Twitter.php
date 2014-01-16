@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * This file is part of the SocialShare package.
+ *
+ * (c) Kévin Dunglas <dunglas@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace SocialShare\Provider;
 
@@ -8,10 +16,19 @@ namespace SocialShare\Provider;
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
-class Twitter extends AbstractProvider
+class Twitter implements ProviderInterface
 {
+    const NAME = 'twitter';
     const SHARE_URL = 'https://twitter.com/intent/tweet?%s';
     const API_URL = 'https://cdn.api.twitter.com/1/urls/count.json?url=%s';
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getName()
+    {
+        return self::NAME;
+    }
 
     /**
      * {@inheritDoc}
@@ -30,6 +47,6 @@ class Twitter extends AbstractProvider
     {
         $data = json_decode(file_get_contents(sprintf(self::API_URL, urlencode($url))));
 
-        return $data->count;
+        return intval($data->count);
     }
 }

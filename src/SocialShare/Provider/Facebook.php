@@ -16,10 +16,19 @@ namespace SocialShare\Provider;
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
-class Facebook extends AbstractProvider
+class Facebook implements ProviderInterface
 {
+    const NAME = 'facebook';
     const SHARE_URL = 'https://www.facebook.com/sharer/sharer.php?u=%s';
     const API_URL = 'https://graph.facebook.com/?id=%s';
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getName()
+    {
+        return self::NAME;
+    }
 
     /**
      * {@inheritDoc}
@@ -36,6 +45,6 @@ class Facebook extends AbstractProvider
     {
         $data = json_decode(file_get_contents(sprintf(self::API_URL, urlencode($url))));
 
-        return isset($data->likes) ? $data->likes : $data->shares;
+        return intval(isset($data->likes) ? $data->likes : $data->shares);
     }
 }

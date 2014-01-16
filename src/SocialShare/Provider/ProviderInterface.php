@@ -19,10 +19,17 @@ namespace SocialShare\Provider;
 interface ProviderInterface
 {
     /**
+     * Gets provider's name
+     *
+     * @return string
+     */
+    public function getName();
+
+    /**
      * Gets the share link for the URL
      *
-     * @param string $url
-     * @param array $options
+     * @param  string $url
+     * @param  array  $options
      * @return string
      */
     public function getLink($url, array $options = array());
@@ -30,8 +37,8 @@ interface ProviderInterface
     /**
      * Gets the number of shares of the URL
      *
-     * @param string $url
+     * @param  string $url
      * @return int
      */
     public function getShares($url);
-} 
+}

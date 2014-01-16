@@ -16,10 +16,19 @@ namespace SocialShare\Provider;
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
-class Google extends AbstractProvider
+class Google implements ProviderInterface
 {
+    const NAME = 'google';
     const SHARE_URL = 'https://plus.google.com/share?url=%s';
     const IFRAME_URL = 'https://plusone.google.com/_/+1/fastbutton?url=%s';
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getName()
+    {
+        return self::NAME;
+    }
 
     /**
      * {@inheritDoc}
@@ -44,7 +53,6 @@ class Google extends AbstractProvider
 
         // Restore libxml errors
         libxml_use_internal_errors();
-
 
         return intval($aggregateCount->nodeValue);
     }
