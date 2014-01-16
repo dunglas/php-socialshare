@@ -26,7 +26,7 @@ These services can be shut down without warning.
 
 Use [Composer](http://getcomposer.org/) to install SocialShare:
 
-composer require dunglas/php-socialshare
+    composer require dunglas/php-socialshare
 
 # Usage
 
@@ -39,7 +39,7 @@ Doctrine Cache supports a lot of caching systems including but limited to file, 
 
 ## Other social networks
 
-You can add support for new social networks by creating a class implementing the [`SocialShare\Provider\ProviderInterface`](src/SocialShare/Provider/ProviderInterface) interface.
+You can add support for new social networks by creating a class implementing the [`SocialShare\Provider\ProviderInterface`](src/SocialShare/Provider/ProviderInterface.php) interface.
 Pull Requests are appreciated.
 
 ## Credits
