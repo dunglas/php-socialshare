@@ -23,6 +23,7 @@ These services can be shut down without warning.
 | Facebook  | yes           |
 | Twitter   | no            |
 | Google    | no            |
+| LinkedIn  | yes           |
 | Pinterest | no            |
 
 ## Installation
@@ -33,7 +34,8 @@ Use [Composer](http://getcomposer.org/) to install SocialShare:
 
 # Usage
 
-See [the example file](examples/buttons.php).
+* [Example file](examples/buttons.php)
+* [Using SocialShare with Wordpress](http://dunglas.fr/2014/01/using-socialshare-with-wordpress-to-create-custom-social-networks-buttons/)
 
 ## Cache
 

@@ -6,6 +6,7 @@ use SocialShare\Provider\Facebook;
 use SocialShare\Provider\Twitter;
 use SocialShare\Provider\Google;
 use SocialShare\Provider\Pinterest;
+use SocialShare\Provider\LinkedIn;
 
 require '../vendor/autoload.php';
 
@@ -16,6 +17,7 @@ $socialShare->registerProvider(new Facebook());
 $socialShare->registerProvider(new Twitter());
 $socialShare->registerProvider(new Google());
 $socialShare->registerProvider(new Pinterest());
+$socialShare->registerProvider(new LinkedIn());
 ?>
 
 <ul>
@@ -37,8 +39,13 @@ $socialShare->registerProvider(new Pinterest());
         </a>
     </li>
     <li>
-        <a href="<?php echo htmlspecialchars($socialShare->getLink(Pinterest::NAME, 'http://dunglas.fr', array('description' => 'Kévin\'s avatar', 'http://dunglas.fr/wp-content/uploads/2008/03/191x300xkeyes-191x300.png.pagespeed.ic.weNKMj-Pq4.png'))) ?>">
+        <a href="<?php echo htmlspecialchars($socialShare->getLink(Pinterest::NAME, 'http://dunglas.fr', array('description' => 'Kévin\'s avatar', 'media' => 'http://dunglas.fr/wp-content/uploads/2008/03/191x300xkeyes-191x300.png.pagespeed.ic.weNKMj-Pq4.png'))) ?>">
             Share on Pinterest (<?php echo $socialShare->getShares(Pinterest::NAME, 'http://dunglas.fr') ?>)
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo htmlspecialchars($socialShare->getLink(LinkedIn::NAME, 'http://dunglas.fr', array('title' => 'Kévin\'s website', 'summary' => 'The blog of Kévin', 'source' => 'Kévin'))) ?>">
+            Share on LinkedIn (<?php echo $socialShare->getShares(LinkedIn::NAME, 'http://dunglas.fr') ?>)
         </a>
     </li>
 </ul>
