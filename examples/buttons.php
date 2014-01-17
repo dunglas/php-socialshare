@@ -7,6 +7,7 @@ use SocialShare\Provider\Twitter;
 use SocialShare\Provider\Google;
 use SocialShare\Provider\Pinterest;
 use SocialShare\Provider\LinkedIn;
+use SocialShare\Provider\ScoopIt;
 
 require '../vendor/autoload.php';
 
@@ -18,6 +19,7 @@ $socialShare->registerProvider(new Twitter());
 $socialShare->registerProvider(new Google());
 $socialShare->registerProvider(new Pinterest());
 $socialShare->registerProvider(new LinkedIn());
+$socialShare->registerProvider(new ScoopIt());
 ?>
 
 <ul>
@@ -46,6 +48,11 @@ $socialShare->registerProvider(new LinkedIn());
     <li>
         <a href="<?php echo htmlspecialchars($socialShare->getLink(LinkedIn::NAME, 'http://dunglas.fr', array('title' => 'Kévin\'s website', 'summary' => 'The blog of Kévin', 'source' => 'Kévin'))) ?>">
             Share on LinkedIn (<?php echo $socialShare->getShares(LinkedIn::NAME, 'http://dunglas.fr') ?>)
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo htmlspecialchars($socialShare->getLink(ScoopIt::NAME, 'http://dunglas.fr')) ?>">
+            Share on Scoop.it! (<?php echo $socialShare->getShares(ScoopIt::NAME, 'http://dunglas.fr') ?>)
         </a>
     </li>
 </ul>

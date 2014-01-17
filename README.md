@@ -2,7 +2,13 @@
 
 SocialShare is a PHP library allowing to retrieve the number of shares of URLs on major social networks.
 It is also able to generate valid sharing links.
-It currently supports Facebook, Twitter, Google Plus and Pinterest.
+It currently supports:
+* Facebook
+* Twitter
+* Google Plus
+* Pinterest
+* LinkedIn
+* Scoop.it!
 
 [![Build Status](https://travis-ci.org/dunglas/php-socialshare.png?branch=master)](https://travis-ci.org/dunglas/php-socialshare)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d/mini.png)](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d)
@@ -25,6 +31,7 @@ These services can be shut down without warning.
 | Google    | no            |
 | LinkedIn  | yes           |
 | Pinterest | no            |
+| Scoop.it! | no            |
 
 ## Installation
 
