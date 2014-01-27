@@ -8,6 +8,7 @@ use SocialShare\Provider\Google;
 use SocialShare\Provider\Pinterest;
 use SocialShare\Provider\LinkedIn;
 use SocialShare\Provider\ScoopIt;
+use SocialShare\Provider\StumbleUpon;
 
 require '../vendor/autoload.php';
 
@@ -20,6 +21,7 @@ $socialShare->registerProvider(new Google());
 $socialShare->registerProvider(new Pinterest());
 $socialShare->registerProvider(new LinkedIn());
 $socialShare->registerProvider(new ScoopIt());
+$socialShare->registerProvider(new StumbleUpon());
 ?>
 
 <ul>
@@ -53,6 +55,11 @@ $socialShare->registerProvider(new ScoopIt());
     <li>
         <a href="<?php echo htmlspecialchars($socialShare->getLink(ScoopIt::NAME, 'http://dunglas.fr')) ?>">
             Share on Scoop.it! (<?php echo $socialShare->getShares(ScoopIt::NAME, 'http://dunglas.fr') ?>)
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo htmlspecialchars($socialShare->getLink(StumbleUpon::NAME, 'http://dunglas.fr')) ?>">
+            Share on StumbleUpon (<?php echo $socialShare->getShares(StumbleUpon::NAME, 'http://dunglas.fr') ?>)
         </a>
     </li>
 </ul>

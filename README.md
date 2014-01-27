@@ -9,6 +9,7 @@ It currently supports:
 * Pinterest
 * LinkedIn
 * Scoop.it!
+* StumbleUpon
 
 [![Build Status](https://travis-ci.org/dunglas/php-socialshare.png?branch=master)](https://travis-ci.org/dunglas/php-socialshare)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d/mini.png)](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d)
@@ -24,14 +25,15 @@ It currently supports:
 For most social networks, the number of shares is retrieved through services not officially approved by social networks.
 These services can be shut down without warning.
 
-| Service   | Official way? |
-| --------- | ------------- |
-| Facebook  | yes           |
-| Twitter   | no            |
-| Google    | no            |
-| LinkedIn  | yes           |
-| Pinterest | no            |
-| Scoop.it! | no            |
+| Service     | Official way? |
+| ----------- | ------------- |
+| Facebook    | yes           |
+| Twitter     | no            |
+| Google      | no            |
+| LinkedIn    | yes           |
+| Pinterest   | no            |
+| Scoop.it!   | no            |
+| StumbleUpon | no            |
 
 ## Installation
 
