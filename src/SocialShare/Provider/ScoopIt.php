@@ -22,6 +22,7 @@ class ScoopIt implements ProviderInterface
     const NAME = 'scoopit';
     const SHARE_URL = 'https://www.scoop.it/bookmarklet?url=%s';
     const BUTTON_URL = 'http://www.scoop.it/button?position=horizontal&url=%s';
+    const DTD = '<!DOCTYPE html>';
 
     /**
      * {@inheritDoc}
@@ -49,7 +50,7 @@ class ScoopIt implements ProviderInterface
         // Disable libxml errors
         libxml_use_internal_errors(true);
         $document = new \DOMDocument();
-        $document->loadHTML($html);
+        $document->loadHTML(self::DTD . $html);
         $aggregateCount = $document->getElementById('scoopit_count');
 
         // Restore libxml errors
