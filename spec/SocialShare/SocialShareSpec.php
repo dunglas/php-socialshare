@@ -13,6 +13,7 @@ namespace spec\SocialShare;
 
 use Doctrine\Common\Cache\Cache;
 use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 use SocialShare\Provider\ProviderInterface;
 
 /**
@@ -44,12 +45,41 @@ class SocialShareSpec extends ObjectBehavior
         $this->getLink('test', 'http://dunglas.fr')->shouldReturn('http://example.com');
     }
 
-    public function it_gets_shares(ProviderInterface $provider)
+    public function it_gets_shares(Cache $cache, ProviderInterface $provider)
     {
+        $cache->fetch('test_http://dunglas.fr')->willReturn(false)->shouldBeCalled();
+        $cache->save('test_http://dunglas.fr', Argument::type('array'))->shouldBeCalled();
+
         $provider->getName()->willReturn('test')->shouldBeCalled();
         $provider->getShares('http://dunglas.fr')->willReturn(11)->shouldBeCalled();
         $this->registerProvider($provider);
         $this->getShares('test', 'http://dunglas.fr')->shouldReturn(11);
+    }
+
+    public function it_delays_update(Cache $cache, ProviderInterface $provider)
+    {
+        $numberOfCalls = 0;
+        $cache->fetch('test_http://dunglas.fr')->will(function () use ($cache, &$numberOfCalls) {
+            if ($numberOfCalls === 0) {
+                $numberOfCalls++;
+
+                return array(2, new \DateTime('-1 day'));
+            }
+
+            return array(1312, new \DateTime());
+        })->shouldBeCalled();
+        $cache->save('test_http://dunglas.fr', Argument::that(function ($arg) {
+            return count($arg) === 2 && $arg[0] === 1312;
+        }))->shouldBeCalled();
+
+        $provider->getName()->willReturn('test')->shouldBeCalled();
+        $provider->getShares('http://dunglas.fr')->willReturn(1312)->shouldBeCalled();
+
+        $this->registerProvider($provider);
+        $this->getShares('test', 'http://dunglas.fr', true)->shouldReturn(2);
+        $this->update();
+        $this->getShares('test', 'http://dunglas.fr', true)->shouldReturn(1312);
+        $this->getShares('test', 'http://dunglas.fr', true)->shouldReturn(1312);
     }
 
     public function it_throws_error_when_provider_is_invalid()

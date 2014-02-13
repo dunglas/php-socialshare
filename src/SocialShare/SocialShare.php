@@ -29,6 +29,10 @@ class SocialShare
      * @var array
      */
     protected $providers = array();
+    /**
+     * @var array
+     */
+    protected $toUpdate = array();
 
     /**
      * @param Cache $cache
@@ -42,10 +46,14 @@ class SocialShare
      * Registers a provider
      *
      * @param ProviderInterface $provider
-     * @param int               $lifeTime
+     * @param int|\DateInterval $lifeTime Life time in seconds or a \DateInterval instance
      */
     public function registerProvider(ProviderInterface $provider, $lifeTime = 3600)
     {
+        if (!$lifeTime instanceof \DateInterval) {
+            $lifeTime = new \DateInterval(sprintf('PT%dS', $lifeTime));
+        }
+
         $this->providers[$provider->getName()] = array('provider' => $provider, 'lifeTime' => $lifeTime);
     }
 
@@ -70,23 +78,51 @@ class SocialShare
      *
      * @param  string            $providerName
      * @param  string            $url
+     * @param  boolean           $delayUpdate
      * @throws \RuntimeException
      * @return int
      */
-    public function getShares($providerName, $url)
+    public function getShares($providerName, $url, $delayUpdate = false)
     {
         $this->checkProvider($providerName);
 
-        $id = sprintf('%s_%s', $providerName, $url);
+        $id = $this->getId($providerName, $url);
+        $lifeTime = $this->providers[$providerName]['lifeTime'];
+        $now = new \DateTime();
 
-        $shares = $this->cache->fetch($id);
-        if (!$shares) {
+        $dataFromCache = $this->cache->fetch($id);
+        $shares = isset($dataFromCache[0]) ? $dataFromCache[0] : false;
+        $expired = isset($dataFromCache[1]) && $dataFromCache[1]->add($lifeTime) < $now;
+
+        if (!$delayUpdate && (false === $shares || $expired)) {
             $shares = $this->providers[$providerName]['provider']->getShares($url);
 
-            $this->cache->save($id, $shares, $this->providers[$providerName]['lifeTime']);
+            $this->cache->save($id, array($shares, $now));
+        } else {
+            $shares = intval($shares);
+
+            if ($expired && $delayUpdate) {
+                $this->toUpdate[$providerName][] = $url;
+            }
         }
 
         return $shares;
+    }
+
+    /**
+     * Updates delayed URLs
+     */
+    public function update()
+    {
+        $now = new \DateTime();
+
+        foreach ($this->toUpdate as $providerName => $urls) {
+            foreach ($urls as $url) {
+                $shares = $this->providers[$providerName]['provider']->getShares($url);
+
+                $this->cache->save($this->getId($providerName, $url), array($shares, $now));
+            }
+        }
     }
 
     /**
@@ -98,7 +134,19 @@ class SocialShare
     private function checkProvider($providerName)
     {
         if (!isset($this->providers[$providerName])) {
-            throw new \RuntimeException(sprintf('Unknow provider "%s".', $providerName));
+            throw new \RuntimeException(sprintf('Unknown provider "%s".', $providerName));
         }
+    }
+
+    /**
+     * Gets the ID corresponding to this provider name and URL
+     *
+     * @param  string $providerName
+     * @param  string $url
+     * @return string
+     */
+    private function getId($providerName, $url)
+    {
+        return sprintf('%s_%s', $providerName, $url);
     }
 }

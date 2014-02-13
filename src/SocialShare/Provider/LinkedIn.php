@@ -33,13 +33,13 @@ class LinkedIn implements ProviderInterface
     /**
      * Gets the share link for the URL
      *
-     * @param array $options This provider supports the following options:<pre>
-     * title: the title
-     * summary: the summary
-     * source: the source
-     * </pre>
-     * @param  string $url
-     * @param  array $options
+     * @param array  $options This provider supports the following options:<pre>
+     *                        title: the title
+     *                        summary: the summary
+     *                        source: the source
+     *                        </pre>
+     * @param string $url
+     * @param array  $options
      *
      * @return string
      */
