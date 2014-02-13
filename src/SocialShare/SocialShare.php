@@ -99,11 +99,11 @@ class SocialShare
 
             $this->cache->save($id, array($shares, $now));
         } else {
-            $shares = intval($shares);
-
-            if ($expired && $delayUpdate) {
+            if ($delayUpdate && (false === $shares || $expired)) {
                 $this->toUpdate[$providerName][] = $url;
             }
+
+            $shares = intval($shares);
         }
 
         return $shares;
