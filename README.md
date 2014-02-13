@@ -49,7 +49,7 @@ Use [Composer](http://getcomposer.org/) to install SocialShare:
 ## Cache
 
 SocialShare relies on the [Doctrine Cache](http://docs.doctrine-project.org/projects/doctrine-common/en/latest/reference/caching.html) component to store data retrieved from social networks.
-Doctrine Cache supports a lot of caching systems including but limited to file, Memcache, MongoDB and Redis. Use the one that suit your needs.
+Doctrine Cache supports a lot of caching systems including but not limited to file, Memcache, MongoDB and Redis. Use the one that suit your needs.
 
 ## Other social networks
 
