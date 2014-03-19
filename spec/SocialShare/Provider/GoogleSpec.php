@@ -33,4 +33,18 @@ class GoogleSpec extends ObjectBehavior
     {
         $this->getShares('http://dunglas.fr')->shouldBeInteger();
     }
+
+    function it_handles_k()
+    {
+        $this->getShares('https://www.google.com/')->shouldBeGreaterThan(1000);
+    }
+
+    public function getMatchers()
+    {
+        return array(
+            'beGreaterThan' => function($subject, $key) {
+                return $subject > $key;
+            }
+        );
+    }
 }

@@ -20,7 +20,7 @@ It currently supports:
 * **Privacy**: therefore, no data from your visitors is send to social networks, their privacy is respected
 * **Customization**: there is no need to use official social networks buttons, you can create beautiful custom buttons displaying the number of shares
 
-## Drawback
+## Drawbacks
 
 For most social networks, the number of shares is retrieved through services not officially approved by social networks.
 These services can be shut down without warning.
@@ -34,6 +34,8 @@ These services can be shut down without warning.
 | Pinterest   | no            |
 | Scoop.it!   | no            |
 | StumbleUpon | no            |
+
+Google returns only an estimate when there is more than 1000 shares (something like >10K). PHP Social Share converts this estimate to an integer.
 
 ## Installation
 
