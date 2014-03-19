@@ -18,8 +18,6 @@ use PhpSpec\ObjectBehavior;
  */
 class StumbleUponSpec extends ObjectBehavior
 {
-    const SHARE_URL = 'http://dunglas.fr';
-
     function it_is_initializable()
     {
         $this->shouldHaveType('SocialShare\Provider\StumbleUpon');
@@ -28,11 +26,11 @@ class StumbleUponSpec extends ObjectBehavior
 
     function it_gets_a_valid_link()
     {
-        $this->getLink(self::SHARE_URL)->shouldBe('http://www.stumbleupon.com/badge/?url=http%3A%2F%2Fdunglas.fr');
+        $this->getLink('http://dunglas.fr')->shouldBe('http://www.stumbleupon.com/badge/?url=http%3A%2F%2Fdunglas.fr');
     }
 
     function it_gets_a_valid_number_of_shares()
     {
-        $this->getShares(self::SHARE_URL)->shouldBeInteger();
+        $this->getShares('http://dunglas.fr')->shouldBeInteger();
     }
 }
