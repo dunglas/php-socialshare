@@ -20,18 +20,18 @@ class LinkedInSpec extends ObjectBehavior
 {
     const SHARE_URL = 'http://dunglas.fr';
 
-    public function it_is_initializable()
+    function it_is_initializable()
     {
         $this->shouldHaveType('SocialShare\Provider\LinkedIn');
         $this->shouldHaveType('SocialShare\Provider\ProviderInterface');
     }
 
-    public function it_gets_a_valid_link()
+    function it_gets_a_valid_link()
     {
         $this->getLink(self::SHARE_URL)->shouldBe('http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fdunglas.fr');
     }
 
-    public function it_gets_a_valid_number_of_shares()
+    function it_gets_a_valid_number_of_shares()
     {
         $this->getShares(self::SHARE_URL)->shouldBeInteger();
     }
