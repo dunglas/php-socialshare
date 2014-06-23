@@ -116,12 +116,13 @@ class SocialShare
      * @throws \RuntimeException
      * @return int
      */
-    public function getSharesTotal( $url )
+    public function getSharesTotal($url)
     {
         $shares = 0;
         foreach($this->providers as $providerName => $provider) {
             $shares += $this->getShares($providerName, $url);
         }
+
         return $shares;
     }
 
