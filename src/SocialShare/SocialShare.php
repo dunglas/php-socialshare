@@ -110,6 +110,22 @@ class SocialShare
     }
 
     /**
+     * Gets the total number of share of the given URL for all providers
+     *
+     * @param  string            $url
+     * @throws \RuntimeException
+     * @return int
+     */
+    public function getSharesTotal( $url )
+    {
+        $shares = 0;
+        foreach($this->providers as $providerName => $provider) {
+            $shares += $this->getShares($providerName, $url);
+        }
+        return $shares;
+    }
+
+    /**
      * Updates delayed URLs
      */
     public function update()
