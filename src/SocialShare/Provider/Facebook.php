@@ -45,6 +45,10 @@ class Facebook implements ProviderInterface
     {
         $data = json_decode(file_get_contents(sprintf(self::API_URL, urlencode($url))));
 
-        return intval(isset($data->likes) ? $data->likes : $data->shares);
+        if( isset($data->likes) )
+            return intval($data->likes);
+        if( isset($data->shares) )
+            return intval($data->shares);
+        return 0;
     }
 }
