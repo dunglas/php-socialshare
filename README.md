@@ -58,6 +58,11 @@ Doctrine Cache supports a lot of caching systems including but not limited to fi
 You can add support for new social networks by creating a class implementing the [`SocialShare\Provider\ProviderInterface`](src/SocialShare/Provider/ProviderInterface.php) interface.
 Pull Requests are appreciated.
 
+## They are using PHP SocialShare
+
+* [Lost In The Supermarket](http://lostinthesupermarket.fr/blog/)
+* [Les-Tilleuls.coop](http://les-tilleuls.coop/actualites/)
+
 ## Credits
 
-This library has been written by [Kévin Dunglas](http://dunglas.fr).
+This library has been written by [Kévin Dunglas](http://dunglas.fr) and [awesome contributors](https://github.com/dunglas/php-socialshare/graphs/contributors).
