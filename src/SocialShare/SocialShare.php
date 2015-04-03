@@ -15,7 +15,7 @@ use Doctrine\Common\Cache\Cache;
 use SocialShare\Provider\ProviderInterface;
 
 /**
- * SocialShare
+ * SocialShare.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
@@ -43,7 +43,7 @@ class SocialShare
     }
 
     /**
-     * Registers a provider
+     * Registers a provider.
      *
      * @param ProviderInterface $provider
      * @param int|\DateInterval $lifeTime Life time in seconds or a \DateInterval instance
@@ -58,12 +58,14 @@ class SocialShare
     }
 
     /**
-     * Gets the sharing links for the given provider and url
+     * Gets the sharing links for the given provider and url.
      *
-     * @param  string            $providerName
-     * @param  string            $url
-     * @param  array             $options
+     * @param string $providerName
+     * @param string $url
+     * @param array  $options
+     *
      * @throws \RuntimeException
+     *
      * @return string
      */
     public function getLink($providerName, $url, array $options = array())
@@ -74,12 +76,14 @@ class SocialShare
     }
 
     /**
-     * Gets the number of share of the given URL on the given provider
+     * Gets the number of share of the given URL on the given provider.
      *
-     * @param  string            $providerName
-     * @param  string            $url
-     * @param  boolean           $delayUpdate
+     * @param string $providerName
+     * @param string $url
+     * @param bool   $delayUpdate
+     *
      * @throws \RuntimeException
+     *
      * @return int
      */
     public function getShares($providerName, $url, $delayUpdate = false)
@@ -110,16 +114,18 @@ class SocialShare
     }
 
     /**
-     * Gets the total number of share of the given URL for all providers
+     * Gets the total number of share of the given URL for all providers.
      *
-     * @param  string            $url
+     * @param string $url
+     *
      * @throws \RuntimeException
+     *
      * @return int
      */
     public function getSharesTotal($url)
     {
         $shares = 0;
-        foreach($this->providers as $providerName => $provider) {
+        foreach ($this->providers as $providerName => $provider) {
             $shares += $this->getShares($providerName, $url);
         }
 
@@ -127,7 +133,7 @@ class SocialShare
     }
 
     /**
-     * Updates delayed URLs
+     * Updates delayed URLs.
      */
     public function update()
     {
@@ -143,9 +149,10 @@ class SocialShare
     }
 
     /**
-     * Checks if the provider is registered
+     * Checks if the provider is registered.
      *
-     * @param  string            $providerName
+     * @param string $providerName
+     *
      * @throws \RuntimeException
      */
     private function checkProvider($providerName)
@@ -156,10 +163,11 @@ class SocialShare
     }
 
     /**
-     * Gets the ID corresponding to this provider name and URL
+     * Gets the ID corresponding to this provider name and URL.
      *
-     * @param  string $providerName
-     * @param  string $url
+     * @param string $providerName
+     * @param string $url
+     *
      * @return string
      */
     private function getId($providerName, $url)

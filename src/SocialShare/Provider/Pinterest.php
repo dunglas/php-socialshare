@@ -12,7 +12,7 @@
 namespace SocialShare\Provider;
 
 /**
- * Pinterest
+ * Pinterest.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */

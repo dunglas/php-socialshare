@@ -50,7 +50,7 @@ class ScoopIt implements ProviderInterface
         // Disable libxml errors
         libxml_use_internal_errors(true);
         $document = new \DOMDocument();
-        $document->loadHTML(self::DTD . $html);
+        $document->loadHTML(self::DTD.$html);
         $aggregateCount = $document->getElementById('scoopit_count');
 
         // Restore libxml errors

@@ -12,7 +12,7 @@
 namespace SocialShare\Provider;
 
 /**
- * Google
+ * Google.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
@@ -56,7 +56,7 @@ class Google implements ProviderInterface
 
         // Instead of big numbers, Google returns strings like >10K
         if (preg_match('/([0-9]+)K/', $aggregateCount->nodeValue, $matches)) {
-           return $matches[1] * 1000;
+            return $matches[1] * 1000;
         }
 
         return intval($aggregateCount->nodeValue);

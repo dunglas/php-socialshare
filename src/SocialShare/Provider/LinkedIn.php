@@ -12,7 +12,7 @@
 namespace SocialShare\Provider;
 
 /**
- * LinkedIn
+ * LinkedIn.
  *
  * @author Morrison Laju <morrelinko@gmail.com>
  */
@@ -31,7 +31,7 @@ class LinkedIn implements ProviderInterface
     }
 
     /**
-     * Gets the share link for the URL
+     * Gets the share link for the URL.
      *
      * @param array  $options This provider supports the following options:<pre>
      *                        title: the title

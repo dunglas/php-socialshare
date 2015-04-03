@@ -12,7 +12,7 @@
 namespace SocialShare\Provider;
 
 /**
- * StumbleUpon
+ * StumbleUpon.
  *
  * @author Morrison Laju <morrelinko@gmail.com>
  */

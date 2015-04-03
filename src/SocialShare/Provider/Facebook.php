@@ -12,7 +12,7 @@
 namespace SocialShare\Provider;
 
 /**
- * Facebook
+ * Facebook.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
@@ -51,6 +51,7 @@ class Facebook implements ProviderInterface
         if (isset($data->shares)) {
             return intval($data->shares);
         }
+
         return 0;
     }
 }

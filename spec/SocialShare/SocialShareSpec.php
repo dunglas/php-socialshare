@@ -21,23 +21,23 @@ use SocialShare\Provider\ProviderInterface;
  */
 class SocialShareSpec extends ObjectBehavior
 {
-    function let(Cache $cache)
+    public function let(Cache $cache)
     {
         $this->beConstructedWith($cache);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('SocialShare\SocialShare');
     }
 
-    function it_registers_provider(ProviderInterface $provider)
+    public function it_registers_provider(ProviderInterface $provider)
     {
         $provider->getName()->shouldBeCalled();
         $this->registerProvider($provider, 1871);
     }
 
-    function it_gets_link(ProviderInterface $provider)
+    public function it_gets_link(ProviderInterface $provider)
     {
         $provider->getName()->willReturn('test')->shouldBeCalled();
         $provider->getLink('http://dunglas.fr', array())->willReturn('http://example.com')->shouldBeCalled();
@@ -45,7 +45,7 @@ class SocialShareSpec extends ObjectBehavior
         $this->getLink('test', 'http://dunglas.fr')->shouldReturn('http://example.com');
     }
 
-    function it_gets_shares(Cache $cache, ProviderInterface $provider)
+    public function it_gets_shares(Cache $cache, ProviderInterface $provider)
     {
         $cache->fetch('test_http://dunglas.fr')->willReturn(false)->shouldBeCalled();
         $cache->save('test_http://dunglas.fr', Argument::type('array'))->shouldBeCalled();
@@ -56,7 +56,7 @@ class SocialShareSpec extends ObjectBehavior
         $this->getShares('test', 'http://dunglas.fr')->shouldReturn(11);
     }
 
-    function it_delays_update(Cache $cache, ProviderInterface $provider)
+    public function it_delays_update(Cache $cache, ProviderInterface $provider)
     {
         $numberOfCalls = 0;
         $cache->fetch('test_http://dunglas.fr')->will(function () use ($cache, &$numberOfCalls) {
@@ -82,7 +82,7 @@ class SocialShareSpec extends ObjectBehavior
         $this->getShares('test', 'http://dunglas.fr', true)->shouldReturn(1312);
     }
 
-    function it_throws_error_when_provider_is_invalid()
+    public function it_throws_error_when_provider_is_invalid()
     {
         $this->shouldThrow('RuntimeException')->duringGetLink('invalid', 'http://dunglas.fr', array('via' => '@dunglas'));
         $this->shouldThrow('RuntimeException')->duringGetShares('invalid', 'http://dunglas.fr');

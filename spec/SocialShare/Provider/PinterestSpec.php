@@ -18,18 +18,18 @@ use PhpSpec\ObjectBehavior;
  */
 class PinterestSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType('SocialShare\Provider\Pinterest');
         $this->shouldHaveType('SocialShare\Provider\ProviderInterface');
     }
 
-    function it_gets_a_valid_link()
+    public function it_gets_a_valid_link()
     {
         $this->getLink('http://dunglas.fr/a-propos/', array('description' => 'Superbe avatar', 'media' => 'http://dunglas.fr/wp-content/uploads/2008/03/191x300xkeyes-191x300.png.pagespeed.ic.weNKMj-Pq4.png'))->shouldBe('https://www.pinterest.com/pin/create/link/?description=Superbe+avatar&media=http%3A%2F%2Fdunglas.fr%2Fwp-content%2Fuploads%2F2008%2F03%2F191x300xkeyes-191x300.png.pagespeed.ic.weNKMj-Pq4.png&url=http%3A%2F%2Fdunglas.fr%2Fa-propos%2F');
     }
 
-    function it_gets_a_valid_number_of_shares()
+    public function it_gets_a_valid_number_of_shares()
     {
         $this->getShares('http://dunglas.fr')->shouldBeInteger();
     }

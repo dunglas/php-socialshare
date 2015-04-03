@@ -12,7 +12,7 @@
 namespace SocialShare\Provider;
 
 /**
- * Twitter
+ * Twitter.
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
