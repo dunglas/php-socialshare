@@ -13,6 +13,7 @@ It currently supports:
 
 [![Build Status](https://travis-ci.org/dunglas/php-socialshare.png?branch=master)](https://travis-ci.org/dunglas/php-socialshare)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d/mini.png)](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dunglas/php-socialshare/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dunglas/php-socialshare/?branch=master)
 
 ## Key features
 
@@ -46,7 +47,8 @@ Use [Composer](http://getcomposer.org/) to install SocialShare:
 # Usage
 
 * [Example file](examples/buttons.php)
-* [Using SocialShare with Wordpress](http://dunglas.fr/2014/01/using-socialshare-with-wordpress-to-create-custom-social-networks-buttons/)
+* [Using SocialShare with Wordpress](https://dunglas.fr/2014/01/using-socialshare-with-wordpress-to-create-custom-social-networks-buttons/)
+* [Twig extension](https://github.com/neemzy/share-extension)
 
 ## Cache
 
