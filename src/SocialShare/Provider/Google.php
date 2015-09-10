@@ -46,13 +46,13 @@ class Google implements ProviderInterface
         $html = file_get_contents(sprintf(self::IFRAME_URL, urlencode($url)));
 
         // Disable libxml errors
-        libxml_use_internal_errors(true);
+        $internalErrors = libxml_use_internal_errors(true);
         $document = new \DOMDocument();
         $document->loadHTML($html);
         $aggregateCount = $document->getElementById('aggregateCount');
 
         // Restore libxml errors
-        libxml_use_internal_errors();
+        libxml_use_internal_errors($internalErrors);
 
         // Instead of big numbers, Google returns strings like >10K
         if (preg_match('/([0-9]+)K/', $aggregateCount->nodeValue, $matches)) {
