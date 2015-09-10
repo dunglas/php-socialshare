@@ -48,7 +48,7 @@ class LinkedIn implements ProviderInterface
         $options['mini'] = 'true';
         $options['url'] = $url;
 
-        return sprintf(self::SHARE_URL, http_build_query($options));
+        return sprintf(self::SHARE_URL, http_build_query($options, null, '&'));
     }
 
     /**
