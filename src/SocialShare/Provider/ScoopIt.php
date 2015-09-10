@@ -48,13 +48,13 @@ class ScoopIt implements ProviderInterface
         $html = file_get_contents(sprintf(self::BUTTON_URL, urlencode($url)));
 
         // Disable libxml errors
-        libxml_use_internal_errors(true);
+        $internalErrors = libxml_use_internal_errors(true);
         $document = new \DOMDocument();
         $document->loadHTML(self::DTD.$html);
         $aggregateCount = $document->getElementById('scoopit_count');
 
         // Restore libxml errors
-        libxml_use_internal_errors();
+        libxml_use_internal_errors($internalErrors);
 
         return intval($aggregateCount->nodeValue);
     }
