@@ -24,15 +24,15 @@ class SocialShare
     /**
      * @var Cache
      */
-    protected $cache;
+    private $cache;
+    /**
+     * @var ProviderInterface[]
+     */
+    private $providers = array();
     /**
      * @var array
      */
-    protected $providers = array();
-    /**
-     * @var array
-     */
-    protected $toUpdate = array();
+    private $toUpdate = array();
 
     /**
      * @param Cache $cache
