@@ -54,9 +54,11 @@ class Google implements ProviderInterface
         // Restore libxml errors
         libxml_use_internal_errors($internalErrors);
 
-        // Instead of big numbers, Google returns strings like >10K
-        if (preg_match('/([0-9]+)K/', $aggregateCount->nodeValue, $matches)) {
-            return $matches[1] * 1000;
+        // Instead of big numbers, Google returns strings like >10K or 12M
+        if (preg_match('/([0-9]+)(K|M)/', $aggregateCount->nodeValue, $matches)) {
+            $multiplier = 'K' === $matches[2] ? 1000 : 1000000;
+
+            return $matches[1] * $multiplier;
         }
 
         return intval($aggregateCount->nodeValue);
