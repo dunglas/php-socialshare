@@ -10,6 +10,7 @@ It currently supports:
 * LinkedIn
 * Scoop.it!
 * StumbleUpon
+* Tumblr
 
 [![Build Status](https://travis-ci.org/dunglas/php-socialshare.png?branch=master)](https://travis-ci.org/dunglas/php-socialshare)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d/mini.png)](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d)
@@ -38,6 +39,8 @@ These services can be shut down without warning.
 | StumbleUpon | no            |
 
 Google returns only an estimate when there is more than 1000 shares (something like >10K). PHP Social Share converts this estimate to an integer.
+
+Tumblr share count cannot be retrieved for an arbitrary URL, and is therefore unavailable through this library.
 
 ## Installation
 
