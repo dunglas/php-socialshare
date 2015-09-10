@@ -17,4 +17,4 @@ php:
 install:
   - composer install
 
-script: vendor/bin/phpspec run
+script: vendor/bin/phpspec run -f pretty -v
