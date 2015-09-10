@@ -11,17 +11,18 @@
 
 namespace spec\SocialShare;
 
-use Doctrine\Common\Cache\Cache;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use SocialShare\Provider\ProviderInterface;
 
 /**
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
 class SocialShareSpec extends ObjectBehavior
 {
-    public function let(Cache $cache)
+    /**
+     * @param \Doctrine\Common\Cache\Cache $cache
+     */
+    public function let($cache)
     {
         $this->beConstructedWith($cache);
     }
@@ -31,13 +32,19 @@ class SocialShareSpec extends ObjectBehavior
         $this->shouldHaveType('SocialShare\SocialShare');
     }
 
-    public function it_registers_provider(ProviderInterface $provider)
+    /**
+     * @param \SocialShare\Provider\ProviderInterface $provider
+     */
+    public function it_registers_provider($provider)
     {
         $provider->getName()->shouldBeCalled();
         $this->registerProvider($provider, 1871);
     }
 
-    public function it_gets_link(ProviderInterface $provider)
+    /**
+     * @param \SocialShare\Provider\ProviderInterface $provider
+     */
+    public function it_gets_link($provider)
     {
         $provider->getName()->willReturn('test')->shouldBeCalled();
         $provider->getLink('http://dunglas.fr', array())->willReturn('http://example.com')->shouldBeCalled();
@@ -45,7 +52,10 @@ class SocialShareSpec extends ObjectBehavior
         $this->getLink('test', 'http://dunglas.fr')->shouldReturn('http://example.com');
     }
 
-    public function it_gets_shares(Cache $cache, ProviderInterface $provider)
+    /**
+     * @param \SocialShare\Provider\ProviderInterface $provider
+     */
+    public function it_gets_shares($cache, $provider)
     {
         $cache->fetch('test_http://dunglas.fr')->willReturn(false)->shouldBeCalled();
         $cache->save('test_http://dunglas.fr', Argument::type('array'))->shouldBeCalled();
@@ -56,7 +66,10 @@ class SocialShareSpec extends ObjectBehavior
         $this->getShares('test', 'http://dunglas.fr')->shouldReturn(11);
     }
 
-    public function it_delays_update(Cache $cache, ProviderInterface $provider)
+    /**
+     * @param \SocialShare\Provider\ProviderInterface $provider
+     */
+    public function it_delays_update($cache, $provider)
     {
         $numberOfCalls = 0;
         $cache->fetch('test_http://dunglas.fr')->will(function () use ($cache, &$numberOfCalls) {
