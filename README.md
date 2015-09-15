@@ -14,6 +14,7 @@ It currently supports:
 [![Build Status](https://travis-ci.org/dunglas/php-socialshare.png?branch=master)](https://travis-ci.org/dunglas/php-socialshare)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d/mini.png)](https://insight.sensiolabs.com/projects/1b5e4baf-2d6d-4dd0-aa1e-9c1f7f40619d)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dunglas/php-socialshare/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dunglas/php-socialshare/?branch=master)
+[![HHVM Status](http://hhvm.h4cc.de/badge/dunglas/php-socialshare.svg)](http://hhvm.h4cc.de/package/dunglas/php-socialshare)
 
 ## Key features
 
@@ -40,7 +41,7 @@ Google returns only an estimate when there is more than 1000 shares (something l
 
 ## Installation
 
-Use [Composer](http://getcomposer.org/) to install SocialShare:
+Use [Composer](https://getcomposer.org/) to install SocialShare:
 
     composer require dunglas/php-socialshare
 
@@ -63,7 +64,7 @@ Pull Requests are appreciated.
 ## They are using PHP SocialShare
 
 * [Lost In The Supermarket](http://lostinthesupermarket.fr/blog/)
-* [Les-Tilleuls.coop](http://les-tilleuls.coop/actualites/)
+* [Les-Tilleuls.coop](https://les-tilleuls.coop/actualites/)
 
 ## Credits
 

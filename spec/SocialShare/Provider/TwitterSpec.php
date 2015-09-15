@@ -26,11 +26,11 @@ class TwitterSpec extends ObjectBehavior
 
     public function it_gets_a_valid_link()
     {
-        $this->getLink('http://dunglas.fr', array('related' => 'dunglas', 'via' => 'dunglas', 'text' => 'Mon super site'))->shouldBe('https://twitter.com/intent/tweet?related=dunglas&via=dunglas&text=Mon+super+site&url=http%3A%2F%2Fdunglas.fr');
+        $this->getLink('https://dunglas.fr', array('related' => 'dunglas', 'via' => 'dunglas', 'text' => 'Mon super site'))->shouldBe('https://twitter.com/intent/tweet?related=dunglas&via=dunglas&text=Mon+super+site&url=https%3A%2F%2Fdunglas.fr');
     }
 
     public function it_gets_a_valid_number_of_shares()
     {
-        $this->getShares('http://dunglas.fr')->shouldBeInteger();
+        $this->getShares('https://dunglas.fr')->shouldBeInteger();
     }
 }

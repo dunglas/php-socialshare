@@ -19,8 +19,8 @@ namespace SocialShare\Provider;
 class LinkedIn implements ProviderInterface
 {
     const NAME = 'linkedin';
-    const SHARE_URL = 'http://www.linkedin.com/shareArticle?%s';
-    const API_URL = 'http://www.linkedin.com/countserv/count/share?url=%s&format=json';
+    const SHARE_URL = 'https://www.linkedin.com/shareArticle?%s';
+    const API_URL = 'https://www.linkedin.com/countserv/count/share?url=%s&format=json';
 
     /**
      * {@inheritDoc}
