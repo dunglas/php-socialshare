@@ -19,8 +19,8 @@ namespace SocialShare\Provider;
 class StumbleUpon implements ProviderInterface
 {
     const NAME = 'stumbleupon';
-    const SHARE_URL = 'http://www.stumbleupon.com/badge/?%s';
-    const API_URL = 'http://www.stumbleupon.com/services/1.01/badge.getinfo?url=%s';
+    const SHARE_URL = 'https://www.stumbleupon.com/badge/?%s';
+    const API_URL = 'https://www.stumbleupon.com/services/1.01/badge.getinfo?url=%s';
 
     /**
      * {@inheritDoc}

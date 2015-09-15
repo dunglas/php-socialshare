@@ -26,11 +26,11 @@ class FacebookSpec extends ObjectBehavior
 
     public function it_gets_a_valid_link()
     {
-        $this->getLink('http://dunglas.fr')->shouldBe('https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdunglas.fr');
+        $this->getLink('https://dunglas.fr')->shouldBe('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdunglas.fr');
     }
 
     public function it_gets_a_valid_number_of_shares()
     {
-        $this->getShares('http://dunglas.fr')->shouldBeInteger();
+        $this->getShares('https://dunglas.fr')->shouldBeInteger();
     }
 }
