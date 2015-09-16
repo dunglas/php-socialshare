@@ -11,9 +11,13 @@
 
 namespace SocialShare\Provider;
 
-use SocialShare\SocialShare;
 use SocialShare\Exception\UnsupportedOperationException;
 
+/**
+ * Tumblr.
+ *
+ * @author Tom Panier <tom.panier@free.fr>
+ */
 class Tumblr implements ProviderInterface
 {
     const NAME = 'tumblr';
