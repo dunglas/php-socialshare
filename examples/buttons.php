@@ -9,6 +9,7 @@ use SocialShare\Provider\Pinterest;
 use SocialShare\Provider\LinkedIn;
 use SocialShare\Provider\ScoopIt;
 use SocialShare\Provider\StumbleUpon;
+use SocialShare\Provider\Tumblr;
 
 require '../vendor/autoload.php';
 
@@ -22,6 +23,7 @@ $socialShare->registerProvider(new Pinterest());
 $socialShare->registerProvider(new LinkedIn());
 $socialShare->registerProvider(new ScoopIt());
 $socialShare->registerProvider(new StumbleUpon());
+$socialShare->registerProvider(new Tumblr());
 ?>
 
 <ul>
@@ -60,6 +62,11 @@ $socialShare->registerProvider(new StumbleUpon());
     <li>
         <a href="<?php echo htmlspecialchars($socialShare->getLink(StumbleUpon::NAME, 'https://dunglas.fr')) ?>">
             Share on StumbleUpon (<?php echo $socialShare->getShares(StumbleUpon::NAME, 'https://dunglas.fr') ?>)
+        </a>
+    </li>
+    <li>
+        <a href="<?php echo htmlspecialchars($socialShare->getLink(Tumblr::NAME, 'http://dunglas.fr', array('name' => 'Kévin\'s website', 'description' => 'The blog of Kévin'))) ?>">
+            Share on Tumblr
         </a>
     </li>
 </ul>
