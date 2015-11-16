@@ -2,7 +2,9 @@
 
 SocialShare is a PHP library allowing to retrieve the number of shares of URLs on major social networks.
 It is also able to generate valid sharing links.
+
 It currently supports:
+
 * Facebook
 * Twitter
 * Google Plus
@@ -50,14 +52,27 @@ Use [Composer](https://getcomposer.org/) to install SocialShare:
 
 # Usage
 
-* [Example file](examples/buttons.php)
+* [Simple example](examples/buttons.php)
 * [Using SocialShare with Wordpress](https://dunglas.fr/2014/01/using-socialshare-with-wordpress-to-create-custom-social-networks-buttons/)
 * [Twig extension](https://github.com/neemzy/share-extension)
 
 ## Cache
 
-SocialShare relies on the [Doctrine Cache](http://docs.doctrine-project.org/projects/doctrine-common/en/latest/reference/caching.html) component to store data retrieved from social networks.
-Doctrine Cache supports a lot of caching systems including but not limited to file, Memcache, MongoDB and Redis. Use the one that suit your needs.
+SocialShare relies on the [Doctrine Cache](http://docs.doctrine-project.org/projects/doctrine-common/en/latest/reference/caching.html) library to store data retrieved from social networks.
+Doctrine Cache supports a lot of caching systems including but not limited to file, Memcache, MongoDB, Redis and APC.
+Use the one that suit your needs.
+
+## Delayed updates
+
+When the third parameter of the `\SocialShare\SocialShare::getShares()` method is set to true, the number of share counts is **never** retrieved from social networks:
+If a value is already in the cache (how old it is doesn't matter) it is used, otherwise 0 is returned
+
+To force the update of share counts, the `\SocialShare\SocialShare::update()` method must be called.
+
+Thanks to this tweak, HTTP requests retrieving shares counts from social networks will be issued after the page load.
+Of course, only the next visitor will see updated counts, but it allows fast pages load even in the worst case: when the data must be updated from social networks servers.
+
+If you use PHP FPM, the call to this method should be done after the end of the network connection with the client using the [`fastcgi_finish_request()` function](http://php.net/manual/en/function.fastcgi-finish-request.php).
 
 ## Other social networks
 
@@ -71,4 +86,4 @@ Pull Requests are appreciated.
 
 ## Credits
 
-This library has been written by [Kévin Dunglas](http://dunglas.fr) and [awesome contributors](https://github.com/dunglas/php-socialshare/graphs/contributors).
+This library has been written by [Kévin Dunglas](https://dunglas.fr) and [awesome contributors](https://github.com/dunglas/php-socialshare/graphs/contributors).
