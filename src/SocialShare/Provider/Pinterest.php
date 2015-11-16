@@ -23,7 +23,7 @@ class Pinterest implements ProviderInterface
     const API_URL = 'https://api.pinterest.com/v1/urls/count.json?url=%s';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -31,7 +31,7 @@ class Pinterest implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getLink($url, array $options = array())
     {
@@ -41,11 +41,11 @@ class Pinterest implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getShares($url)
     {
-        $data = json_decode(preg_replace('/^receiveCount\((.*)\)$/', "\\1", file_get_contents(sprintf(self::API_URL, urlencode($url)))));
+        $data = json_decode(preg_replace('/^receiveCount\((.*)\)$/', '\\1', file_get_contents(sprintf(self::API_URL, urlencode($url)))));
 
         return intval($data->count);
     }

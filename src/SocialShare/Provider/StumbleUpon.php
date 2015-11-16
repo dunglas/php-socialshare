@@ -23,7 +23,7 @@ class StumbleUpon implements ProviderInterface
     const API_URL = 'https://www.stumbleupon.com/services/1.01/badge.getinfo?url=%s';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -31,7 +31,7 @@ class StumbleUpon implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getLink($url, array $options = array())
     {
@@ -41,7 +41,7 @@ class StumbleUpon implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getShares($url)
     {

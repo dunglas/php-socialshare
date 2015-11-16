@@ -23,7 +23,7 @@ class Facebook implements ProviderInterface
     const API_URL = 'https://graph.facebook.com/?id=%s';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -31,7 +31,7 @@ class Facebook implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getLink($url, array $options = array())
     {
@@ -39,7 +39,7 @@ class Facebook implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getShares($url)
     {

@@ -24,7 +24,7 @@ class Tumblr implements ProviderInterface
     const SHARE_URL = 'https://www.tumblr.com/share/link?%s';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -32,7 +32,7 @@ class Tumblr implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getLink($url, array $options = array())
     {
@@ -42,7 +42,7 @@ class Tumblr implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      *
      * @throws UnsupportedOperationException
      */

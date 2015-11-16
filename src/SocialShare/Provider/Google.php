@@ -23,7 +23,7 @@ class Google implements ProviderInterface
     const IFRAME_URL = 'https://plusone.google.com/_/+1/fastbutton?url=%s';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -31,7 +31,7 @@ class Google implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getLink($url, array $options = array())
     {
@@ -39,7 +39,7 @@ class Google implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getShares($url)
     {

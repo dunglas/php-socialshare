@@ -74,7 +74,7 @@ class SocialShareSpec extends ObjectBehavior
         $numberOfCalls = 0;
         $cache->fetch('test_http://dunglas.fr')->will(function () use ($cache, &$numberOfCalls) {
             if ($numberOfCalls === 0) {
-                $numberOfCalls++;
+                ++$numberOfCalls;
 
                 return array(2, new \DateTime('-1 day'));
             }

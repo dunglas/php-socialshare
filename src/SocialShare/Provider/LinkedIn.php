@@ -23,7 +23,7 @@ class LinkedIn implements ProviderInterface
     const API_URL = 'https://www.linkedin.com/countserv/count/share?url=%s&format=json';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -52,7 +52,7 @@ class LinkedIn implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getShares($url)
     {

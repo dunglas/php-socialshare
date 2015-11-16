@@ -23,7 +23,7 @@ class Twitter implements ProviderInterface
     const API_URL = 'https://cdn.api.twitter.com/1/urls/count.json?url=%s';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -31,7 +31,7 @@ class Twitter implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getLink($url, array $options = array())
     {
@@ -41,7 +41,7 @@ class Twitter implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getShares($url)
     {

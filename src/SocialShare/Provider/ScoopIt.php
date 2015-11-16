@@ -25,7 +25,7 @@ class ScoopIt implements ProviderInterface
     const DTD = '<!DOCTYPE html>';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -33,7 +33,7 @@ class ScoopIt implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getLink($url, array $options = array())
     {
@@ -41,7 +41,7 @@ class ScoopIt implements ProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getShares($url)
     {
