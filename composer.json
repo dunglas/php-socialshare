@@ -19,7 +19,8 @@
     "require": {
         "php": ">=5.3",
         "ext-json": "*",
-        "doctrine/cache": "~1.3.0"
+        "doctrine/cache": "~1.3.0",
+        "abraham/twitteroauth": "^0.6.2"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0"

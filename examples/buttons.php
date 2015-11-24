@@ -17,13 +17,20 @@ $cache = new PhpFileCache(sys_get_temp_dir());
 $socialShare = new SocialShare($cache);
 
 $socialShare->registerProvider(new Facebook());
-$socialShare->registerProvider(new Twitter());
 $socialShare->registerProvider(new Google());
 $socialShare->registerProvider(new Pinterest());
 $socialShare->registerProvider(new LinkedIn());
 $socialShare->registerProvider(new ScoopIt());
 $socialShare->registerProvider(new StumbleUpon());
 $socialShare->registerProvider(new Tumblr());
+
+// Create an app here: https://apps.twitter.com/
+$twitterConsumerKey    = '__set_to_your_app_key__';             // app / Keys and Access Tokens, use "Consumer Key"
+$twitterConsumerSecret = '__set_to_your_app_secret__';          // app / Keys and Access Tokens, use "Consumer Secret"
+$twitterOauthToken     = '__set_to_your_access_token__';        // app / Keys and Access Tokens, use "Access Token" (generate access token and secret)
+$twitterOauthSecret    = '__set_to_your_access_token_secret__'; // app / Keys and Access Tokens, use "Access Token Secret" (generate access token and secret)
+
+$socialShare->registerProvider(new Twitter($twitterConsumerKey, $twitterConsumerSecret, $twitterOauthToken, $twitterOauthSecret));
 ?>
 
 <ul>
